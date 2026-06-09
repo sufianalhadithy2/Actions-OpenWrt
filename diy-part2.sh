@@ -18,8 +18,5 @@
 
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
-sed -i '/"u-boot"/,/read-only;/s/read-only;//' target/linux/ath79/dts/ar934x_ubiquiti_xw.dtsi
-sed -i '/"u-boot-env"/,/read-only;/s/read-only;//' target/linux/ath79/dts/ar934x_ubiquiti_xw.dtsi
+find target/linux/ath79/dts/ -name "ar*_ubiquiti_*.dtsi" -exec sed -i '/"u-boot"/,/read-only;/s/read-only;//' {} \; -exec sed -i '/"u-boot-env"/,/read-only;/s/read-only;//' {} \;
 
-sed -i '/"u-boot"/,/read-only;/s/read-only;//' target/linux/ath79/dts/ar7242_ubiquiti_xm.dtsi
-sed -i '/"u-boot-env"/,/read-only;/s/read-only;//' target/linux/ath79/dts/ar7242_ubiquiti_xm.dtsi
