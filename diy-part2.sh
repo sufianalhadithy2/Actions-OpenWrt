@@ -18,6 +18,7 @@
 
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
+#!/bin/sh
 sed -i '/"u-boot"/,/read-only;/s/read-only;//' target/linux/ath79/dts/ar934x_ubiquiti_xw.dtsi
 sed -i '/"u-boot-env"/,/read-only;/s/read-only;//' target/linux/ath79/dts/ar934x_ubiquiti_xw.dtsi
 echo "CONFIG_PACKAGE_luci=y" >> .config
