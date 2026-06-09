@@ -1,0 +1,5 @@
+#!/bin/sh
+echo "/dev/mtd1 0x0 0x10000 0x10000" > /etc/fw_env.config
+fw_setenv ipaddr 10.175.80.22
+fw_setenv serverip 10.175.80.100
+exit 0
