@@ -25,3 +25,12 @@ echo "CONFIG_PACKAGE_luci=y" >> .config
 echo "CONFIG_PACKAGE_luci-mod-admin-full=y" >> .config
 echo "CONFIG_PACKAGE_uhttpd=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-firewall=y" >> .config
+mkdir -p files/etc/uci-defaults
+cat << 'EOF' > files/etc/uci-defaults/99_change_uboot_ip
+#!/bin/sh
+echo "/dev/mtd1 0x0 0x10000 0x10000" > /etc/fw_env.config
+fw_setenv ipaddr 10.175.80.22
+fw_setenv serverip 10.175.80.100
+exit 0
+EOF
+chmod +x files/etc/uci-defaults/99_change_uboot_ip
